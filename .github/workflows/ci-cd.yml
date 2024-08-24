@@ -20,11 +20,11 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements/requirements.txt
     - name: Train and save pipeline
-      run: python bikeshare_model/train_pipeline.py
+      run: python attrition_model/train_pipeline.py
     - uses: actions/upload-artifact@v2
       with:
         name: my-trained-pipeline
-        path: bikeshare_model/trained_models/*.pkl
+        path: attrition_model/trained_models/*.pkl
         retention-days: 1
 
   test:
@@ -41,7 +41,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: my-trained-pipeline
-        path: bikeshare_model/trained_models
+        path: attrition_model/trained_models
     - name: Install dependencies
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
@@ -61,7 +61,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: my-trained-pipeline
-        path: bikeshare_model/trained_models
+        path: attrition_model/trained_models
     - name: Install dependencies
       run: pip install --upgrade build
     - name: Build package
@@ -82,7 +82,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: my-build-package
-        path: bikeshare_model_api
+        path: attrition_model_api
 
     - name: Login to Docker hub
       env:
@@ -93,12 +93,12 @@ jobs:
     - name: Build the Docker image for Fastapi app
       env:
         DOCKER_USER: ${{ secrets.NAME }}
-      run: docker build . -f Dockerfile -t $DOCKER_USER/bikeshare-fastapi:latest
+      run: docker build . -f Dockerfile -t $DOCKER_USER/attrition-fastapi:latest
 
     - name: Push the Docker Image
       env:
         DOCKER_USER: ${{ secrets.NAME }}
-      run: docker push $DOCKER_USER/bikeshare-fastapi
+      run: docker push $DOCKER_USER/attrition-fastapi
 
     - name: Logout to Docker hub
       run: docker logout
