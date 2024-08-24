@@ -1,0 +1,62 @@
+# Package Overview
+package_name: attrition_model
+
+# Data Files
+training_data_file: wa_fn_usec_hr_employee_attrition_tsv.csv
+test_data_file: test.csv
+
+# Variables
+# The variable we are attempting to predict (Survival)
+target: attrition
+
+pipeline_name: attrition_model
+pipeline_save_file: attrition__model_output_v
+
+features:
+  - age
+  - businesstravel
+  - dailyrate
+  - department
+  - distancefromhome
+  - education
+  - educationfield
+  - employeecount
+  - employeenumber
+  - environmentsatisfaction
+  - gender
+  - hourlyrate
+  - jobinvolvement
+  - joblevel
+  - jobrole
+  - jobsatisfaction
+  - maritalstatus
+  - monthlyincome
+  - monthlyrate
+  - numcompaniesworked
+  - over18
+  - overtime
+  - percentsalaryhike
+  - performancerating
+  - relationshipsatisfaction
+  - standardhours
+  - stockoptionlevel
+  - totalworkingyears
+  - trainingtimeslastyear
+  - workLifebalance
+  - yearsatcompany
+  - yearsincurrentrole
+  - yearssincelastpromotion
+  - yearswithcurrmanager
+
+
+
+
+# set train/test split
+test_size: 0.20
+
+# to set the random seed
+random_state: 42
+# alogrithm parameters
+n_estimators: 150
+max_depth: 5
+
