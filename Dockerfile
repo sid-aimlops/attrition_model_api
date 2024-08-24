@@ -1,5 +1,5 @@
 # pull python base image
-FROM python:3.10
+FROM python:3.10.14-slim-bullseye
 
 # copy application files
 ADD /attrition_model_api /attrition_model_api/
