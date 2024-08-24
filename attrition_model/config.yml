@@ -42,7 +42,7 @@ features:
   - stockoptionlevel
   - totalworkingyears
   - trainingtimeslastyear
-  - workLifebalance
+  - worklifebalance
   - yearsatcompany
   - yearsincurrentrole
   - yearssincelastpromotion

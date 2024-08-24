@@ -1,7 +1,7 @@
 from typing import Any, List, Optional
 
 from pydantic import BaseModel
-from titanic_model.processing.validation import DataInputSchema
+from attrition_model.processing.validation import DataInputSchema
 
 
 class PredictionResults(BaseModel):
